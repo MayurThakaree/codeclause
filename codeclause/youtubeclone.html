@@ -1,0 +1,529 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Material Icons -->
+    <link href="fontofyt" rel="stylesheet" />
+    <!-- CSS File -->
+    <link rel="stylesheet" href="styles/index.css" />
+    <title>Youtube Clone with HTML & CSS</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            }
+            body {
+                font-family: 'Roboto', sans-serif;
+                }
+            .header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    height: 60px;
+                    padding: 15px;
+                }
+                main {
+                            height: calc(200vh - 100px);
+                            display: flex;
+                            background-color: #f9f9f9;
+                         }
+                         .side-bar {
+                        height: 100%;
+                        width: 17%;
+                        background-color: white;
+                        overflow-y: hidden;
+                    } 
+                    @media (max-width: 768px) {
+                    .side-bar {
+                    display: none;
+                    }
+                }
+                .left {
+                display: flex;
+                align-items: center;
+                }
+
+                .left #menu {
+                padding: 0 7px;
+                cursor: pointer;
+                }
+                .search {
+                display: flex;
+                }
+
+                .search form {
+                display: flex;
+                border: 1px solid #ddd;
+                height: 45px;
+                }
+                .search input {
+                    width: 600px;
+                    padding:10px;
+                    border: 0;
+                    height: 100%;
+                    border-radius: 2px 0 0 2px
+                    }
+
+                    input:focus {
+                    outline: none;
+                    border: 1px solid #ddd;
+                    }
+                    .search button {
+                    height: 100%;
+                    width: 60px;
+                    border: none;
+                    }
+                    
+                    .mic {
+                    margin-top: 10px;
+                    }
+                    .material-icons {
+                    color: rgb(100, 100, 100);
+                    padding: 0 7px;
+                    cursor: pointer;
+                }
+                .nav {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 15px;
+                margin-top: 15px;
+            }
+
+            .nav-link {
+                display: flex;
+                align-items: center;
+                padding: 12px 25px;
+                }
+                
+                .nav-link span {
+                margin-left: 15px;
+                }
+                
+                .nav-link:hover {
+                background: #e5e5e5;
+                cursor: pointer;
+                }
+
+                .active {
+                background: #e5e5e5;
+                }
+                hr {
+                height: 1px;
+                background-color: #e5e5e5;
+                border: none;
+                }
+                .content {
+                background-color: #f9f9f9;
+                width: 100%;
+                height: 100%;
+                padding: 15px 15px;
+                border-top: 1px solid #ddd;
+                overflow-y: scroll;
+                }
+
+                .videos {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                }
+
+                .video {
+                width: 270px;
+                margin-bottom: 0px;
+                margin-right: 35px;
+                margin-top: 20px;
+          
+                }
+                .thumbnail {
+                width: 100%;
+                height: 170px;
+                margin-right: 105px;
+            
+                
+                }
+                .thumbnail img {
+                object-fit: cover;
+                height: 100%;
+                width: 120%;
+                margin-left: 15px;
+                margin-right: 80px;
+                }
+                
+                .author img {
+                object-fit: cover;
+                border-radius: 50%;
+                height: 40px;
+                width: 40px;
+                margin-right: 10px;
+                margin-left: 20px;
+                }
+                .details {
+                display: flex;
+                }
+                
+                .title {
+                display: flex;
+                flex-direction: column;
+                }
+                
+                .title h3 {
+                color: rgb(3, 3, 3);
+                line-height: 18px;
+                font-size: 14px;
+                margin-bottom: 2px;
+                }
+                
+                .title a,
+                span {
+
+                text-decoration: none;
+                color: rgb(96, 96, 96);
+                font-size: 12px;
+                }
+                @media (max-width: 768px) {
+                .side-bar {
+                display: none;
+                }
+                .search {
+                display: none;
+                margin-bottom: 2px;
+                }
+            }
+                   
+           
+        
+        a{
+         margin-bottom: 2px;
+        }
+        
+       
+            
+            .main{
+               
+               
+               display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                
+
+            }
+           
+      
+    </style>
+  </head>
+  <body>
+
+  <!-- Main Body Ends -->
+   <header class="header">
+    <div class="logo left">
+      <i id="menu" class="material-icons"></i>
+      <img src="https://www.freecodecamp.org/news/content/images/2022/01/yt-logo.png">
+    </div>
+    
+    <div class="search center">
+      <form action="">
+        <input type="text" placeholder="Search" />
+        <button><i class="material-icons">search</i></button>
+      </form>
+      <i class="material-icons mic">mic</i>
+    </div>
+    
+    <div class="icons right">
+      <i class="material-icons">videocam</i>
+      <i class="material-icons">apps</i>
+      <i class="material-icons">notifications</i>
+      <i class="material-icons display-this">account_circle</i>
+    </div>
+   </header>
+  
+      
+   <main class="main">
+      <div class="newuperrow">
+         <div class="video">
+           <a href="https://th.bing.com/th?id=OVFT.ugAfUotNh4-hhWmPYYN3yS&pid=News&w=197&h=112&c=14&rs=2&qlt=90">
+            <div class="thumbnail">
+               <img src="https://th.bing.com/th/id/OIP.gZm34oV4EQk-fe1EBN15XgHaEK?w=307&h=180&c=7&r=0&o=5&pid=1.7" alt="" />
+             </div>
+             <br>
+     
+               <div class="details">
+                  <div class="author">
+                     <img src="https://yt3.ggpht.com/bpzY-S4DYlbTeOpY5hIA7qz_hcbMkgvLAugtwKBGTTImNnWAGudX0y53bo_fJZ0auypxrWkUiw=s88-c-k-c0x00ffffff-no-rj" alt="" />
+                  </div>
+                  <div class="title">
+                     <h3>
+                         BJP WIN 3 STATE ELECTION BY BEATING CONGRESS
+                      </h3>
+                      
+                             BJP india
+                       </a>
+                       <span> 2M Views • 3 Months Ago </span>
+                  </div>
+                  
+                </div>
+     
+              </div>
+   
+           </div>
+           
+              <div class="newuperrow">
+            <div class="video">
+              <div class="thumbnail">
+                    <img src="https://th.bing.com/th/id/OIF.4ziTZrRyVjEETVwdax4ywg?rs=1&pid=ImgDetMain" alt="" />
+               
+                 </div>
+                 <br>
+                 <div class="details">
+                    <div class="author">
+                       <img src="https://yt3.ggpht.com/bpzY-S4DYlbTeOpY5hIA7qz_hcbMkgvLAugtwKBGTTImNnWAGudX0y53bo_fJZ0auypxrWkUiw=s88-c-k-c0x00ffffff-no-rj" alt="" />
+                    </div>
+                    <div class="title">
+                       <h3>
+                           MODI OR MELONI KI TYA HUYI SHADI 
+                        </h3>
+                        <a href="">
+                               Meme
+                         </a>
+                         <span> 12M Views • 5 days Ago </span>
+                    </div>
+                   </div>
+                </div>
+              </div>
+             </div>
+             <div class="newuperrow">
+             <div class="video">
+              
+           <div class="corner">
+              <div class="thumbnail">
+                 <img src="https://www.targetadmission.com/img/colleges/optimized/600/IMG-1-6510076.jpg" alt="" />
+                 <p> </p>
+               </div>
+                 <br>
+                 <div class="details">
+                    <div class="author">
+                       <img src="https://th.bing.com/th/id/OIP.kM6nEZHqYyfw6GJtuSYpAwHaEb?w=237&h=180&c=7&r=0&o=5&pid=1.7" alt="" />
+                    </div>
+                    <div class="title">
+                       <h3>
+                          submisions ko raddi me bech ke Raisoni clg ne kamaye 15 lakh rs
+   
+                        </h3>
+                        <a href="">
+                               jalgaon news
+                         </a>
+                         <span> 122k Views • 3 Months Ago </span>
+                    </div>
+                    
+                  </div>
+       
+                </div>
+    
+             </div>
+             
+             <br>
+             
+           </div>
+             
+             
+        </div>
+        <!-- a video Ends -->
+      </div>
+     </div>
+      <div class="newuperrow">
+         <div class="video">
+           <a href="https://th.bing.com/th?id=OVFT.ugAfUotNh4-hhWmPYYN3yS&pid=News&w=197&h=112&c=14&rs=2&qlt=90">
+            <div class="thumbnail">
+               <img src="https://th.bing.com/th/id/OIP.gZm34oV4EQk-fe1EBN15XgHaEK?w=307&h=180&c=7&r=0&o=5&pid=1.7" alt="" />
+             </div>
+             <br>
+     
+               <div class="details">
+                  <div class="author">
+                     <img src="https://yt3.ggpht.com/bpzY-S4DYlbTeOpY5hIA7qz_hcbMkgvLAugtwKBGTTImNnWAGudX0y53bo_fJZ0auypxrWkUiw=s88-c-k-c0x00ffffff-no-rj" alt="" />
+                  </div>
+                  <div class="title">
+                     <h3>
+                         BJP WIN 3 STATE ELECTION BY BEATING CONGRESS
+                      </h3>
+                      
+                             BJP india
+                       </a>
+                       <span> 2M Views • 3 Months Ago </span>
+                  </div>
+                  
+                </div>
+     
+              </div>
+   
+           </div>
+              <div class="newuperrow">
+            <div class="video">
+              <div class="thumbnail">
+                    <img src="https://th.bing.com/th/id/OIF.4ziTZrRyVjEETVwdax4ywg?rs=1&pid=ImgDetMain" alt="" />
+               
+                 </div>
+                 <br>
+                 <div class="details">
+                    <div class="author">
+                       <img src="https://yt3.ggpht.com/bpzY-S4DYlbTeOpY5hIA7qz_hcbMkgvLAugtwKBGTTImNnWAGudX0y53bo_fJZ0auypxrWkUiw=s88-c-k-c0x00ffffff-no-rj" alt="" />
+                    </div>
+                    <div class="title">
+                       <h3>
+                           MODI OR MELONI KI TYA HUYI SHADI 
+                        </h3>
+                        <a href="">
+                               Meme
+                         </a>
+                         <span> 12M Views • 5 days Ago </span>
+                    </div>
+                   </div>
+                </div>
+              </div>
+             </div>
+             <div class="newuperrow">
+             <div class="video">
+              
+           <div class="corner">
+              <div class="thumbnail">
+                 <img src="https://www.targetadmission.com/img/colleges/optimized/600/IMG-1-6510076.jpg" alt="" />
+                 <p> </p>
+               </div>
+                 <br>
+                 <div class="details">
+                    <div class="author">
+                       <img src="https://th.bing.com/th/id/OIP.kM6nEZHqYyfw6GJtuSYpAwHaEb?w=237&h=180&c=7&r=0&o=5&pid=1.7" alt="" />
+                    </div>
+                    <div class="title">
+                       <h3>
+                          submisions ko raddi me bech ke Raisoni clg ne kamaye 15 lakh rs
+   
+                        </h3>
+                        <a href="">
+                               jalgaon news
+                         </a>
+                         <span> 122k Views • 3 Months Ago </span>
+                    </div>
+                    
+                  </div>
+       
+                </div>
+    
+             </div>
+             
+             <br>
+             
+           </div>
+             
+             
+        </div>
+        <!-- a video Ends -->
+      </div>
+     </div>
+   <!-- a video starts -->
+   <div class="newuperrow">
+      <div class="video">
+        <a href="https://th.bing.com/th?id=OVFT.ugAfUotNh4-hhWmPYYN3yS&pid=News&w=197&h=112&c=14&rs=2&qlt=90">
+         <div class="thumbnail">
+            <img src="https://th.bing.com/th/id/OIP.gZm34oV4EQk-fe1EBN15XgHaEK?w=307&h=180&c=7&r=0&o=5&pid=1.7" alt="" />
+          </div>
+          <br>
+  
+            <div class="details">
+               <div class="author">
+                  <img src="https://yt3.ggpht.com/bpzY-S4DYlbTeOpY5hIA7qz_hcbMkgvLAugtwKBGTTImNnWAGudX0y53bo_fJZ0auypxrWkUiw=s88-c-k-c0x00ffffff-no-rj" alt="" />
+               </div>
+               <div class="title">
+                  <h3>
+                      BJP WIN 3 STATE ELECTION BY BEATING CONGRESS
+                   </h3>
+                   
+                          BJP india
+                    </a>
+                    <span> 2M Views • 3 Months Ago </span>
+               </div>
+               
+             </div>
+  
+           </div>
+
+        </div>
+           <div class="newuperrow">
+         <div class="video">
+           <div class="thumbnail">
+                 <img src="https://th.bing.com/th/id/OIF.4ziTZrRyVjEETVwdax4ywg?rs=1&pid=ImgDetMain" alt="" />
+            
+              </div>
+              <br>
+              <div class="details">
+                 <div class="author">
+                    <img src="https://yt3.ggpht.com/bpzY-S4DYlbTeOpY5hIA7qz_hcbMkgvLAugtwKBGTTImNnWAGudX0y53bo_fJZ0auypxrWkUiw=s88-c-k-c0x00ffffff-no-rj" alt="" />
+                 </div>
+                 <div class="title">
+                    <h3>
+                        MODI OR MELONI KI TYA HUYI SHADI 
+                     </h3>
+                     <a href="">
+                            Meme
+                      </a>
+                      <span> 12M Views • 5 days Ago </span>
+                 </div>
+                </div>
+             </div>
+           </div>
+          </div>
+          <div class="newuperrow">
+          <div class="video">
+           
+        <div class="corner">
+           <div class="thumbnail">
+              <img src="https://www.targetadmission.com/img/colleges/optimized/600/IMG-1-6510076.jpg" alt="" />
+              <p> </p>
+            </div>
+              <br>
+              <div class="details">
+                 <div class="author">
+                    <img src="https://th.bing.com/th/id/OIP.kM6nEZHqYyfw6GJtuSYpAwHaEb?w=237&h=180&c=7&r=0&o=5&pid=1.7" alt="" />
+                 </div>
+                 <div class="title">
+                    <h3>
+                       submisions ko raddi me bech ke Raisoni clg ne kamaye 15 lakh rs
+
+                     </h3>
+                     <a href="">
+                            jalgaon news
+                      </a>
+                      <span> 122k Views • 3 Months Ago </span>
+                 </div>
+                 
+               </div>
+    
+             </div>
+ 
+          </div>
+          
+          <br>
+          
+        </div>
+          
+          
+     </div>
+     <!-- a video Ends -->
+   </div>
+  </div>
+
+</div>
+</div>
+   <!-- a video Ends -->
+ </div>
+</div>
+
+</main>
+</body>
+</html>
